@@ -1,0 +1,823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>思想者档案馆</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Noto+Serif+SC:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --parchment: #f5f0e8;
+    --parchment-dark: #ede6d3;
+    --ink: #1a1610;
+    --ink-faded: #5c5240;
+    --ink-light: #8c7d60;
+    --accent: #8b2e00;
+    --accent-light: #c4501a;
+    --rule: #c8b896;
+    --sidebar-bg: #1a1610;
+    --sidebar-text: #d4c9a8;
+    --sidebar-hover: #f5f0e8;
+    --sidebar-muted: #8c7d60;
+    --photo-border: #c8b896;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Noto Serif SC', 'EB Garamond', serif;
+    background: var(--parchment);
+    color: var(--ink);
+    display: flex;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  /* ── SIDEBAR ── */
+  #sidebar {
+    width: 220px;
+    min-height: 100vh;
+    background: var(--sidebar-bg);
+    display: flex;
+    flex-direction: column;
+    flex-shrink: 0;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    overflow-y: auto;
+  }
+
+  #sidebar-header {
+    padding: 28px 20px 18px;
+    border-bottom: 1px solid #3a3020;
+  }
+
+  #sidebar-header h1 {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--sidebar-text);
+    letter-spacing: 0.08em;
+    line-height: 1.4;
+  }
+
+  #sidebar-header p {
+    font-size: 11px;
+    color: var(--sidebar-muted);
+    margin-top: 5px;
+    letter-spacing: 0.12em;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+  }
+
+  .alpha-group { margin-top: 4px; }
+
+  .alpha-label {
+    display: block;
+    padding: 10px 20px 4px;
+    font-family: 'EB Garamond', serif;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--sidebar-muted);
+    text-transform: uppercase;
+  }
+
+  .philosopher-link {
+    display: block;
+    padding: 6px 20px 6px 28px;
+    font-size: 13px;
+    color: #b0a080;
+    text-decoration: none;
+    cursor: pointer;
+    transition: all 0.15s;
+    border-left: 2px solid transparent;
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .philosopher-link:hover {
+    color: var(--sidebar-hover);
+    background: rgba(255,255,255,0.04);
+    border-left-color: var(--accent);
+  }
+
+  .philosopher-link.active {
+    color: var(--sidebar-hover);
+    border-left-color: var(--accent-light);
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ── MAIN ── */
+  #main {
+    flex: 1;
+    min-height: 100vh;
+    position: relative;
+  }
+
+  /* ── HERO ── */
+  #hero {
+    position: relative;
+    width: 100%;
+    height: 380px;
+    overflow: hidden;
+    background: var(--parchment-dark);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid var(--rule);
+  }
+
+  #hero-image-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(160deg, #e8dfc8 0%, #d5c9a8 40%, #c8b888 100%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  #hero-image-placeholder::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 38px, rgba(0,0,0,0.03) 39px),
+      repeating-linear-gradient(90deg, transparent, transparent 38px, rgba(0,0,0,0.02) 39px);
+  }
+
+  #hero-image-placeholder .placeholder-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--ink-light);
+    letter-spacing: 0.1em;
+    position: relative;
+    z-index: 1;
+    text-align: center;
+    padding: 16px 32px;
+    border: 1px dashed var(--rule);
+  }
+
+  #hero-image-placeholder .placeholder-dims {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+  }
+
+  #hero-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0; right: 0;
+    padding: 10px 40px;
+    background: rgba(26, 22, 16, 0.55);
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+  }
+
+  #hero-caption .site-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: #f5f0e8;
+    letter-spacing: 0.06em;
+  }
+
+  #hero-caption .site-sub {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 14px;
+    color: #c8b896;
+    letter-spacing: 0.1em;
+  }
+
+  /* ── CONTENT AREA ── */
+  #content-area {
+    padding: 0;
+  }
+
+  /* HOME INDEX */
+  #home-view {
+    padding: 40px 50px 60px;
+  }
+
+  #home-view h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 24px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .index-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 0;
+  }
+
+  .index-card {
+    padding: 18px 16px;
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    cursor: pointer;
+    transition: background 0.15s;
+    position: relative;
+  }
+
+  .index-card:hover {
+    background: var(--parchment-dark);
+  }
+
+  .index-card:hover .card-name { color: var(--accent); }
+
+  .card-century {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 11px;
+    color: var(--ink-light);
+    letter-spacing: 0.05em;
+    margin-bottom: 4px;
+  }
+
+  .card-name {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--ink);
+    transition: color 0.15s;
+    line-height: 1.3;
+  }
+
+  .card-name-en {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 2px;
+    font-style: italic;
+  }
+
+  .card-tradition {
+    margin-top: 8px;
+    display: inline-block;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 2px 7px;
+    border: 1px solid var(--rule);
+    color: var(--ink-light);
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* PHILOSOPHER DETAIL */
+  #detail-view {
+    display: none;
+    padding: 40px 50px 80px;
+  }
+
+  #detail-view.visible { display: block; }
+  #home-view.hidden { display: none; }
+
+  .back-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    cursor: pointer;
+    margin-bottom: 32px;
+    transition: color 0.15s;
+    background: none;
+    border: none;
+    padding: 0;
+  }
+  .back-btn:hover { color: var(--accent); }
+  .back-btn::before { content: '←'; font-size: 14px; }
+
+  .detail-header {
+    display: flex;
+    gap: 36px;
+    margin-bottom: 36px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid var(--rule);
+    align-items: flex-start;
+  }
+
+  .detail-photo {
+    width: 140px;
+    height: 170px;
+    flex-shrink: 0;
+    border: 1px solid var(--photo-border);
+    overflow: hidden;
+    background: var(--parchment-dark);
+    position: relative;
+  }
+
+  .detail-photo img {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    filter: sepia(20%);
+  }
+
+  .detail-photo .photo-placeholder {
+    width: 100%; height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+  }
+
+  .detail-photo .photo-placeholder svg {
+    opacity: 0.25;
+  }
+
+  .detail-photo .photo-caption {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    background: rgba(26,22,16,0.5);
+    text-align: center;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 10px;
+    color: #c8b896;
+    padding: 3px;
+  }
+
+  .detail-meta { flex: 1; }
+
+  .detail-meta h2 {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 32px;
+    line-height: 1.1;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+
+  .detail-meta .name-en {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: var(--ink-light);
+    margin-bottom: 12px;
+  }
+
+  .meta-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+
+  .meta-pill {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    padding: 3px 10px;
+    border: 1px solid var(--rule);
+    color: var(--ink-faded);
+    letter-spacing: 0.06em;
+  }
+
+  .detail-meta .bio {
+    font-size: 14px;
+    line-height: 1.9;
+    color: var(--ink-faded);
+    font-weight: 300;
+  }
+
+  .section-title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 12px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .works-list { margin-bottom: 40px; }
+
+  .work-item {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(200,184,150,0.4);
+  }
+
+  .work-item:last-child { border-bottom: none; }
+
+  .work-year {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    color: var(--ink-light);
+    width: 40px;
+    flex-shrink: 0;
+  }
+
+  .work-info { flex: 1; }
+
+  .work-title {
+    font-size: 14px;
+    color: var(--ink);
+    font-style: italic;
+    font-family: 'EB Garamond', serif;
+    font-size: 15px;
+  }
+
+  .work-title-cn {
+    font-size: 13px;
+    color: var(--ink-faded);
+    font-family: 'Noto Serif SC', serif;
+    font-weight: 300;
+    margin-left: 6px;
+  }
+
+  .work-note {
+    font-size: 12px;
+    color: var(--ink-light);
+    margin-top: 2px;
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+  }
+
+  .download-btn {
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.08em;
+    color: var(--accent);
+    border: 1px solid var(--accent);
+    padding: 3px 10px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.15s;
+    background: none;
+    flex-shrink: 0;
+    display: inline-block;
+  }
+
+  .download-btn:hover {
+    background: var(--accent);
+    color: var(--parchment);
+  }
+
+  .download-btn.unavailable {
+    color: var(--rule);
+    border-color: var(--rule);
+    cursor: default;
+  }
+  .download-btn.unavailable:hover {
+    background: none;
+    color: var(--rule);
+  }
+
+  /* ornament */
+  .ornament {
+    text-align: center;
+    color: var(--rule);
+    font-size: 18px;
+    letter-spacing: 0.4em;
+    margin: 24px 0 32px;
+    font-family: 'EB Garamond', serif;
+  }
+
+  /* scrollbar */
+  #sidebar::-webkit-scrollbar { width: 4px; }
+  #sidebar::-webkit-scrollbar-track { background: transparent; }
+  #sidebar::-webkit-scrollbar-thumb { background: #3a3020; }
+
+  @media (max-width: 680px) {
+    #sidebar { width: 180px; }
+    #home-view, #detail-view { padding: 24px 20px 40px; }
+    .detail-header { flex-direction: column; }
+    .detail-photo { width: 100%; height: 200px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════ SIDEBAR ══════ -->
+<nav id="sidebar">
+  <div id="sidebar-header">
+    <h1>思想者<br>档案馆</h1>
+    <p>Philosophi Archivum</p>
+  </div>
+  <div id="sidebar-nav"></div>
+</nav>
+
+<!-- ══════ MAIN ══════ -->
+<div id="main">
+  <!-- Hero Banner -->
+  <div id="hero">
+    <div id="hero-image-placeholder">
+      <div class="placeholder-text">
+        横版题头图（请替换为您的画作）
+        <div class="placeholder-dims">建议尺寸：1400 × 380 px</div>
+      </div>
+    </div>
+    <div id="hero-caption">
+      <span class="site-name">思想者档案馆</span>
+      <span class="site-sub">一份私人的哲学索引</span>
+    </div>
+  </div>
+
+  <div id="content-area">
+    <!-- HOME -->
+    <div id="home-view">
+      <h2>全部思想家</h2>
+      <div class="index-grid" id="index-grid"></div>
+    </div>
+
+    <!-- DETAIL -->
+    <div id="detail-view">
+      <button class="back-btn" onclick="showHome()">返回索引</button>
+      <div id="detail-content"></div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+//  数据：思想家列表（可自由增删）
+// ══════════════════════════════════════════
+const philosophers = [
+  {
+    id: "aristotle",
+    lastName: "A",
+    nameCN: "亚里士多德",
+    nameEN: "Aristotle",
+    years: "384–322 BC",
+    century: "公元前4世纪",
+    tradition: "古希腊",
+    photo: null,
+    bio: "古希腊哲学家、科学家，柏拉图的学生，亚历山大大帝的老师。其思想覆盖逻辑学、形而上学、伦理学、政治学、生物学等几乎全部知识领域，对西方哲学影响长达两千年。他创立了逻各斯中心主义的传统，并在《尼各马可伦理学》中确立了\"幸福\"（eudaimonia）作为人类最高目的的观念。",
+    works: [
+      { year: "~335 BC", titleEN: "Nicomachean Ethics", titleCN: "尼各马可伦理学", note: "幸福论与德性伦理学奠基之作", file: null },
+      { year: "~350 BC", titleEN: "Metaphysics", titleCN: "形而上学", note: "存在、本质与第一因的系统探讨", file: null },
+      { year: "~350 BC", titleEN: "Politics", titleCN: "政治学", note: "城邦制度与人的政治本性", file: null },
+      { year: "~350 BC", titleEN: "Poetics", titleCN: "诗学", note: "悲剧理论与模仿说", file: null },
+    ]
+  },
+  {
+    id: "kant",
+    lastName: "K",
+    nameCN: "康德",
+    nameEN: "Immanuel Kant",
+    years: "1724–1804",
+    century: "18世纪",
+    tradition: "德国观念论",
+    photo: null,
+    bio: "德国哲学家，启蒙运动的核心人物。其\"哥白尼式革命\"将认识论的焦点从客体转向主体，认为人的认知结构主动塑造经验。《纯粹理性批判》划定了理性的界限；《实践理性批判》以定言命令奠定道德的普遍性；《判断力批判》则沟通自然与自由两界。",
+    works: [
+      { year: "1781", titleEN: "Critique of Pure Reason", titleCN: "纯粹理性批判", note: "知识何以可能的先验分析", file: null },
+      { year: "1785", titleEN: "Groundwork of the Metaphysics of Morals", titleCN: "道德形而上学基础", note: "定言命令的论证", file: null },
+      { year: "1788", titleEN: "Critique of Practical Reason", titleCN: "实践理性批判", note: "道德法则与意志自由", file: null },
+      { year: "1790", titleEN: "Critique of Judgment", titleCN: "判断力批判", note: "审美与目的论", file: null },
+      { year: "1795", titleEN: "Perpetual Peace", titleCN: "论永久和平", note: "国际联盟与世界公民权", file: null },
+    ]
+  },
+  {
+    id: "nietzsche",
+    lastName: "N",
+    nameCN: "尼采",
+    nameEN: "Friedrich Nietzsche",
+    years: "1844–1900",
+    century: "19世纪",
+    tradition: "德国哲学",
+    photo: null,
+    bio: "德国哲学家、诗人。以\"上帝已死\"宣告西方形而上学传统的终结，并以权力意志与超人学说勾勒出重估一切价值的方案。他的写作风格格言式、诗化，对存在主义、后现代主义及二十世纪文化产生了深远影响。其晚期著作呈现出对永恒轮回的沉思与对虚无主义的克服。",
+    works: [
+      { year: "1872", titleEN: "The Birth of Tragedy", titleCN: "悲剧的诞生", note: "日神与酒神精神的对立", file: null },
+      { year: "1882", titleEN: "The Gay Science", titleCN: "快乐的知识", note: "\"上帝已死\"的宣告", file: null },
+      { year: "1883", titleEN: "Thus Spoke Zarathustra", titleCN: "查拉图斯特拉如是说", note: "超人与永恒轮回", file: null },
+      { year: "1886", titleEN: "Beyond Good and Evil", titleCN: "善恶的彼岸", note: "对道德谱系的批判", file: null },
+      { year: "1887", titleEN: "On the Genealogy of Morality", titleCN: "道德的谱系", note: "主人道德与奴隶道德", file: null },
+    ]
+  },
+  {
+    id: "plato",
+    lastName: "P",
+    nameCN: "柏拉图",
+    nameEN: "Plato",
+    years: "428–348 BC",
+    century: "公元前4世纪",
+    tradition: "古希腊",
+    photo: null,
+    bio: "古希腊哲学家，苏格拉底的弟子、亚里士多德的老师。以理念论（Forms）为核心，将真实的存在置于永恒不变的理念世界，而感官世界不过是其影子。《理想国》构建了哲学王治理的政治乌托邦；《对话录》则通过辩证法探讨正义、爱、灵魂与知识等根本问题。",
+    works: [
+      { year: "~380 BC", titleEN: "The Republic", titleCN: "理想国", note: "正义、城邦与哲学王", file: null },
+      { year: "~385 BC", titleEN: "Symposium", titleCN: "会饮篇", note: "爱欲（Eros）的多重阐释", file: null },
+      { year: "~399 BC", titleEN: "Apology", titleCN: "申辩篇", note: "苏格拉底的辩护与殉道", file: null },
+      { year: "~360 BC", titleEN: "Phaedrus", titleCN: "斐德罗篇", note: "灵魂、爱与修辞术", file: null },
+      { year: "~360 BC", titleEN: "Timaeus", titleCN: "蒂迈欧篇", note: "宇宙创生与理念的物质化", file: null },
+    ]
+  },
+  {
+    id: "heidegger",
+    lastName: "H",
+    nameCN: "海德格尔",
+    nameEN: "Martin Heidegger",
+    years: "1889–1976",
+    century: "20世纪",
+    tradition: "现象学 / 存在主义",
+    photo: null,
+    bio: "德国哲学家，二十世纪最具影响力与争议的思想家之一。以\"存在论差异\"重新打开西方哲学遗忘已久的存在问题，《存在与时间》以此在（Dasein）的时间性结构揭示存在的意义。晚期转向（Kehre）后，他关注语言、诗与技术对存在的遮蔽与开显，影响遍及解释学、后现代主义与建筑现象学。",
+    works: [
+      { year: "1927", titleEN: "Being and Time", titleCN: "存在与时间", note: "此在、时间性与存在的意义", file: null },
+      { year: "1935", titleEN: "Introduction to Metaphysics", titleCN: "形而上学导论", note: "存在问题的重新提问", file: null },
+      { year: "1950", titleEN: "The Origin of the Work of Art", titleCN: "艺术作品的本源", note: "真理与大地的争执", file: null },
+      { year: "1954", titleEN: "The Question Concerning Technology", titleCN: "技术的追问", note: "现代技术的座架（Gestell）", file: null },
+    ]
+  },
+  {
+    id: "sartre",
+    lastName: "S",
+    nameCN: "萨特",
+    nameEN: "Jean-Paul Sartre",
+    years: "1905–1980",
+    century: "20世纪",
+    tradition: "存在主义 / 现象学",
+    photo: null,
+    bio: "法国哲学家、作家、戏剧家，存在主义的旗帜性人物。以\"存在先于本质\"反对一切本质主义，将人的自由与责任置于中心。他的现象学本体论深受胡塞尔与海德格尔影响，晚年转向马克思主义，尝试将存在主义与历史唯物论综合。1964年拒绝接受诺贝尔文学奖。",
+    works: [
+      { year: "1938", titleEN: "Nausea", titleCN: "恶心", note: "荒诞感与偶然性的文学呈现", file: null },
+      { year: "1943", titleEN: "Being and Nothingness", titleCN: "存在与虚无", note: "自在存在与自为存在", file: null },
+      { year: "1945", titleEN: "Existentialism Is a Humanism", titleCN: "存在主义是一种人道主义", note: "通俗演讲，存在主义宣言", file: null },
+      { year: "1960", titleEN: "Critique of Dialectical Reason", titleCN: "辩证理性批判", note: "存在主义与马克思主义的综合", file: null },
+    ]
+  },
+  {
+    id: "wittgenstein",
+    lastName: "W",
+    nameCN: "维特根斯坦",
+    nameEN: "Ludwig Wittgenstein",
+    years: "1889–1951",
+    century: "20世纪",
+    tradition: "分析哲学",
+    photo: null,
+    bio: "奥地利裔英国哲学家，二十世纪最重要的分析哲学家之一。早期《逻辑哲学论》以图像论描述语言与世界的关系，认为哲学问题源于语言的误用；晚期《哲学研究》转而以\"语言游戏\"和\"家族相似\"批判本质主义，开创日常语言哲学传统。",
+    works: [
+      { year: "1921", titleEN: "Tractatus Logico-Philosophicus", titleCN: "逻辑哲学论", note: "语言图像论，可说与不可说", file: null },
+      { year: "1953", titleEN: "Philosophical Investigations", titleCN: "哲学研究", note: "语言游戏与意义使用论", file: null },
+      { year: "1969", titleEN: "On Certainty", titleCN: "论确定性", note: "知识、怀疑与语言基础", file: null },
+    ]
+  },
+  {
+    id: "zhuangzi",
+    lastName: "Z",
+    nameCN: "庄子",
+    nameEN: "Zhuangzi",
+    years: "约 369–286 BC",
+    century: "公元前4世纪",
+    tradition: "道家 / 中国哲学",
+    photo: null,
+    bio: "战国时期道家哲学家，与老子并称\"老庄\"。以寓言、隐喻和诗性语言探讨道的本质、生死的齐一、以及超越世俗是非的逍遥之境。其哲学蕴含深刻的相对主义与认识论反思，对后世中国文学、禅宗及美学产生了不可磨灭的影响。",
+    works: [
+      { year: "约 300 BC", titleEN: "Zhuangzi (Inner Chapters)", titleCN: "庄子·内篇", note: "逍遥游、齐物论等七篇", file: null },
+      { year: "约 300 BC", titleEN: "Zhuangzi (Outer Chapters)", titleCN: "庄子·外篇", note: "秋水、至乐等十五篇", file: null },
+    ]
+  },
+];
+
+// ══════════════════════════════════════════
+//  构建侧边栏
+// ══════════════════════════════════════════
+function buildSidebar() {
+  const sorted = [...philosophers].sort((a, b) => a.nameEN.localeCompare(b.nameEN));
+  const groups = {};
+  sorted.forEach(p => {
+    const letter = p.nameEN[0].toUpperCase();
+    if (!groups[letter]) groups[letter] = [];
+    groups[letter].push(p);
+  });
+
+  const nav = document.getElementById('sidebar-nav');
+  Object.keys(groups).sort().forEach(letter => {
+    const grp = document.createElement('div');
+    grp.className = 'alpha-group';
+    grp.innerHTML = `<span class="alpha-label">${letter}</span>`;
+    groups[letter].forEach(p => {
+      const a = document.createElement('a');
+      a.className = 'philosopher-link';
+      a.dataset.id = p.id;
+      a.textContent = p.nameCN;
+      a.href = '#';
+      a.addEventListener('click', e => { e.preventDefault(); showDetail(p.id); });
+      grp.appendChild(a);
+    });
+    nav.appendChild(grp);
+  });
+}
+
+// ══════════════════════════════════════════
+//  构建首页索引网格
+// ══════════════════════════════════════════
+function buildGrid() {
+  const sorted = [...philosophers].sort((a, b) => a.nameEN.localeCompare(b.nameEN));
+  const grid = document.getElementById('index-grid');
+  sorted.forEach(p => {
+    const card = document.createElement('div');
+    card.className = 'index-card';
+    card.innerHTML = `
+      <div class="card-century">${p.century}</div>
+      <div class="card-name">${p.nameCN}</div>
+      <div class="card-name-en">${p.nameEN}</div>
+      <span class="card-tradition">${p.tradition}</span>
+    `;
+    card.addEventListener('click', () => showDetail(p.id));
+    grid.appendChild(card);
+  });
+}
+
+// ══════════════════════════════════════════
+//  显示详情页
+// ══════════════════════════════════════════
+function showDetail(id) {
+  const p = philosophers.find(x => x.id === id);
+  if (!p) return;
+
+  document.querySelectorAll('.philosopher-link').forEach(a => {
+    a.classList.toggle('active', a.dataset.id === id);
+  });
+
+  const photoHTML = p.photo
+    ? `<img src="${p.photo}" alt="${p.nameCN}肖像"><div class="photo-caption">${p.nameCN}</div>`
+    : `<div class="photo-placeholder">
+        <svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <circle cx="24" cy="18" r="10" stroke="#5c5240" stroke-width="1.5"/>
+          <path d="M4 44c0-11 8.954-20 20-20s20 9 20 20" stroke="#5c5240" stroke-width="1.5"/>
+        </svg>
+       </div>
+       <div class="photo-caption">肖像待添加</div>`;
+
+  const worksHTML = p.works.map(w => `
+    <div class="work-item">
+      <span class="work-year">${w.year}</span>
+      <div class="work-info">
+        <span class="work-title">${w.titleEN}</span>
+        <span class="work-title-cn">／${w.titleCN}</span>
+        ${w.note ? `<div class="work-note">${w.note}</div>` : ''}
+      </div>
+      ${w.file
+        ? `<a class="download-btn" href="${w.file}" download>下载</a>`
+        : `<span class="download-btn unavailable">待上传</span>`}
+    </div>
+  `).join('');
+
+  document.getElementById('detail-content').innerHTML = `
+    <div class="detail-header">
+      <div class="detail-photo">${photoHTML}</div>
+      <div class="detail-meta">
+        <h2>${p.nameCN}</h2>
+        <div class="name-en">${p.nameEN}</div>
+        <div class="meta-pills">
+          <span class="meta-pill">${p.years}</span>
+          <span class="meta-pill">${p.tradition}</span>
+          <span class="meta-pill">${p.century}</span>
+        </div>
+        <p class="bio">${p.bio}</p>
+      </div>
+    </div>
+    <div class="ornament">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+    <p class="section-title">著作列表</p>
+    <div class="works-list">${worksHTML}</div>
+  `;
+
+  document.getElementById('home-view').classList.add('hidden');
+  document.getElementById('detail-view').classList.add('visible');
+  window.scrollTo({ top: 0 });
+}
+
+// ══════════════════════════════════════════
+//  返回首页
+// ══════════════════════════════════════════
+function showHome() {
+  document.querySelectorAll('.philosopher-link').forEach(a => a.classList.remove('active'));
+  document.getElementById('home-view').classList.remove('hidden');
+  document.getElementById('detail-view').classList.remove('visible');
+  window.scrollTo({ top: 0 });
+}
+
+// ══════════════════════════════════════════
+//  初始化
+// ══════════════════════════════════════════
+buildSidebar();
+buildGrid();
+</script>
+</body>
+</html>
