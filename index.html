@@ -120,16 +120,27 @@
 
   /* ── HERO ── */
   #hero {
-    position: relative;
-    width: 100%;
-    height: 380px;
-    overflow: hidden;
-    background: var(--parchment-dark);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-bottom: 2px solid var(--rule);
-  }
+  position: relative;
+  width: 100%;
+  height: 380px;
+  overflow: hidden;
+  border-bottom: 2px solid var(--rule);
+}
+
+#hero-image {
+  position: absolute;
+  inset: 0;           /* top/right/bottom/left 全部为0，撑满容器 */
+  width: 100%;
+  height: 100%;
+}
+
+#hero-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;  /* 顶部对齐，不裁顶部 */
+  display: block;
+}
 
   #hero-image-placeholder {
     width: 100%;
@@ -172,33 +183,40 @@
     letter-spacing: 0.06em;
   }
 
-  #hero-caption {
-    position: absolute;
-    bottom: 0;
-    left: 0; right: 0;
-    padding: 10px 40px;
-    background: rgba(26, 22, 16, 0.55);
-    display: flex;
-    align-items: baseline;
-    gap: 16px;
-  }
+ #hero-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0; right: 0;
+  padding: 10px 40px;
+  background: rgba(26, 22, 16, 0.55);
+  display: flex;
+  align-items: baseline;
+  gap: 16px;
+  pointer-events: none;
+}
 
-  #hero-caption .site-name {
-    font-family: 'EB Garamond', serif;
-    font-size: 26px;
-    font-weight: 400;
-    color: #f5f0e8;
-    letter-spacing: 0.06em;
-  }
+#hero-caption .site-name {
+  font-family: 'EB Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: #f5f0e8;
+  letter-spacing: 0.06em;
+}
 
-  #hero-caption .site-sub {
-    font-family: 'EB Garamond', serif;
-    font-style: italic;
-    font-size: 14px;
-    color: #c8b896;
-    letter-spacing: 0.1em;
-  }
+#hero-caption .site-sub {
+  font-family: 'EB Garamond', serif;
+  font-style: italic;
+  font-size: 14px;
+  color: #c8b896;
+  letter-spacing: 0.1em;
+}
 
+#hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to bottom, transparent 10%, rgba(26, 22, 16, 0.5) 100%);
+  pointer-events: none;
+}
   /* ── CONTENT AREA ── */
   #content-area {
     padding: 0;
@@ -525,9 +543,11 @@
   <!-- Hero Banner -->
 <div id="hero">
     <div id="hero-image">
-        <img src="images/banner.png" alt="保守主义思想者档案馆 - 哲学题头" loading="eager">
+        <img src="images/banner.png" alt="保守主义思想者档案馆" loading="eager">
     </div>
-        <div id="hero-overlay"></div>
+    
+    <!-- 可选半透明遮罩，让文字更清晰 -->
+    <div id="hero-overlay"></div>
     
     <div id="hero-caption">
         <span class="site-name">保守主义思想者档案馆</span>
