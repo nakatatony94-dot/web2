@@ -218,6 +218,83 @@
   background: linear-gradient(to bottom, transparent 10%, rgba(26, 22, 16, 0.5) 100%);
   pointer-events: none;
 }
+  /* ── DAILY QUOTE ── */
+  #quote-bar {
+    padding: 28px 50px 26px;
+    border-bottom: 1px solid var(--rule);
+    background: var(--parchment-dark);
+    display: flex;
+    align-items: center;
+    gap: 24px;
+    position: relative;
+  }
+
+  #quote-bar::before {
+    content: '\201C';
+    font-family: 'EB Garamond', serif;
+    font-size: 72px;
+    line-height: 1;
+    color: var(--rule);
+    position: absolute;
+    left: 44px;
+    top: 12px;
+    pointer-events: none;
+    user-select: none;
+  }
+
+  #quote-text-wrap {
+    flex: 1;
+    padding-left: 32px;
+  }
+
+  #quote-text {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 17px;
+    line-height: 1.8;
+    color: var(--ink-faded);
+    transition: opacity 0.4s;
+  }
+
+  #quote-source {
+    margin-top: 8px;
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    transition: opacity 0.4s;
+  }
+
+  #quote-source em {
+    font-style: italic;
+    color: var(--accent-light);
+  }
+
+  #quote-refresh {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-light);
+    font-family: 'EB Garamond', serif;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    padding: 6px 14px;
+    cursor: pointer;
+    transition: all 0.15s;
+  }
+
+  #quote-refresh:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  @media (max-width: 680px) {
+    #quote-bar { padding: 22px 20px 20px; flex-wrap: wrap; }
+    #quote-bar::before { left: 14px; font-size: 52px; }
+    #quote-text-wrap { padding-left: 18px; }
+    #quote-text { font-size: 15px; }
+  }
+
   /* ── CONTENT AREA ── */
   #content-area {
     padding: 0;
@@ -556,6 +633,15 @@
     </div>
 </div>
 
+  <!-- ══════ 随机语录 ══════ -->
+  <div id="quote-bar">
+    <div id="quote-text-wrap">
+      <div id="quote-text"></div>
+      <div id="quote-source"></div>
+    </div>
+    <button id="quote-refresh" onclick="showQuote()">换一条</button>
+  </div>
+
   <div id="content-area">
     <!-- HOME -->
     <div id="home-view">
@@ -571,7 +657,42 @@
   </div>
 </div>
 
+<script src="quotes.js"></script>
 <script>
+// ══════════════════════════════════════════
+//  随机语录
+// ══════════════════════════════════════════
+let lastQuoteIndex = -1;
+
+function showQuote(animate = true) {
+  let idx;
+  do { idx = Math.floor(Math.random() * quotes.length); }
+  while (quotes.length > 1 && idx === lastQuoteIndex);
+  lastQuoteIndex = idx;
+
+  const q = quotes[idx];
+  const textEl = document.getElementById('quote-text');
+  const srcEl  = document.getElementById('quote-source');
+
+  if (animate) {
+    textEl.style.opacity = '0';
+    srcEl.style.opacity  = '0';
+    setTimeout(() => {
+      textEl.textContent = q.text;
+      srcEl.innerHTML    = q.source
+        ? `—— ${q.author}，<em>${q.source}</em>`
+        : `—— ${q.author}`;
+      textEl.style.opacity = '1';
+      srcEl.style.opacity  = '1';
+    }, 250);
+  } else {
+    textEl.textContent = q.text;
+    srcEl.innerHTML    = q.source
+      ? `—— ${q.author}，<em>${q.source}</em>`
+      : `—— ${q.author}`;
+  }
+}
+
 // ══════════════════════════════════════════
 //  数据：思想家列表（可自由增删）
 // ══════════════════════════════════════════
@@ -838,6 +959,7 @@ function showHome() {
 // ══════════════════════════════════════════
 buildSidebar();
 buildGrid();
+showQuote(false);
 </script>
 </body>
 </html>
