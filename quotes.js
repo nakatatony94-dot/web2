@@ -18,5 +18,29 @@ const quotes = [
     author: "里根总统/Ronald Reagan",
     source: "里根总统演讲"
   },
-
+  {
+    text: "在目前的危机中,政府并不是我们问题的解决办法,政府本身才是问题所在。\n In this present crisis, government is not the solution to our problem; government is the problem",
+    author: "里根总统/Ronald Reagan",
+    source: "里根总统就职演说"
+  },
+    {
+    text: "政府的首要职责是保护人民，而不是管理他们的生活 \n Government's first duty is to protect the people, not run their lives.",
+    author: "里根总统/Ronald Reagan",
+    source: "里根总统演讲"
+  },
+  {
+    text: "个人自由与经济自由不可分割。你不能拥有其中一个而失去另一个。你失去一个，就失去另一个 \n Personal freedom and economic freedom are indivisible. You can't have one without the other. You can't lose one without losing the other.",
+    author: "撒切尔夫人/Margaret Thatcher",
+    source: "撒切尔夫人 1976"
+  },
+  {
+    text: "政府存在的目的是服务人民的自由，而不是限制它 \n Governments are there to serve the liberties of the people, not to restrict them.",
+    author: "撒切尔夫人/Margaret Thatcher",
+    source: "撒切尔夫人"
+  },
+  {
+    text: "政府的首要职责是保护人民，而不是管理他们的生活 \n Government's first duty is to protect the people, not run their lives.",
+    author: "撒切尔夫人/Margaret Thatcher",
+    source: "撒切尔夫人"
+  },
 ];
