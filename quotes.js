@@ -4,53 +4,19 @@
 // ══════════════════════════════════════════
 const quotes = [
   {
-    text: "一个国家，若不能保存其过去，便不能拥有其未来。",
-    author: "埃德蒙·柏克",
-    source: "《法国大革命反思录》"
+    text: "自由从来不会超过一代人就能灭绝。我们没有把它通过血脉传给我们的孩子。它必须由我们去奋斗、保护，并传给他们，让他们也同样去做，否则有一天我们会在暮年告诉我们的孩子和孩子的孩子，美国曾经是一个人们享有自由的地方\n Freedom is never more than one generation away from extinction. We didn't pass it to our children in the bloodstream. It must be fought for, protected, and handed on for them to do the same, or one day we will spend our sunset years telling our children and our children's children what it was once like in the United States where men were free",
+    author: "里根总统/Ronald Reagan",
+    source: "里根总统演讲"
   },
   {
-    text: "传统不是对灰烬的崇拜，而是对火焰的传递。",
-    author: "居斯塔夫·马勒",
-    source: null
+    text: "如果我们在这里失去自由，就没有地方可以逃了。这是地球上最后的立足点。 \n If we lose freedom here, there is no place to escape to. This is the last stand on earth.",
+    author: "里根总统/Ronald Reagan",
+    source: "里根总统演讲"
   },
   {
-    text: "自由不是无拘无束地按自己的意愿行事，而是有权利做法律允许的一切。",
-    author: "孟德斯鸠",
-    source: "《论法的精神》"
+    text: "自由是质疑和改变既有做事方式的权利。它是市场的持续革命。它是认识到没有一个人、没有单一权威或政府垄断真理，而每一个个体生命都无限珍贵 \n Freedom is the right to question and change the established way of doing things. It is the continuous revolution of the marketplace",
+    author: "里根总统/Ronald Reagan",
+    source: "里根总统演讲"
   },
-  {
-    text: "人不能两次踏进同一条河流。",
-    author: "赫拉克利特",
-    source: null
-  },
-  {
-    text: "美德不是激情，也不是能力，而是一种稳定的品性状态。",
-    author: "亚里士多德",
-    source: "《尼各马可伦理学》"
-  },
-  {
-    text: "人是政治动物。",
-    author: "亚里士多德",
-    source: "《政治学》"
-  },
-  {
-    text: "吾爱吾师，吾更爱真理。",
-    author: "亚里士多德",
-    source: null
-  },
-  {
-    text: "哲学始于惊异。",
-    author: "柏拉图",
-    source: "《泰阿泰德篇》"
-  },
-  {
-    text: "上帝已死，我们杀死了他。",
-    author: "尼采",
-    source: "《快乐的知识》"
-  },
-  {
-    text: "凡不能毁灭我的，必使我强大。",
-    author: "尼采",
-    source: "《偶像的黄昏》"
-  },
+
 ];

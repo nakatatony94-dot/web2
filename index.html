@@ -254,6 +254,7 @@
     line-height: 1.8;
     color: var(--ink-faded);
     transition: opacity 0.4s;
+    white-space: pre-line;  /* ← 加这一行 */
   }
 
   #quote-source {
@@ -289,7 +290,7 @@
   }
 
   @media (max-width: 680px) {
-    #quote-bar { padding: 22px 20px 20px; flex-wrap: wrap; }
+    #quote-bar { padding: 60px 20px 60px; flex-wrap: wrap; }
     #quote-bar::before { left: 14px; font-size: 52px; }
     #quote-text-wrap { padding-left: 18px; }
     #quote-text { font-size: 15px; }
