@@ -36,11 +36,16 @@ const quotes = [
   {
     text: "政府存在的目的是服务人民的自由，而不是限制它 \n Governments are there to serve the liberties of the people, not to restrict them.",
     author: "撒切尔夫人/Margaret Thatcher",
-    source: "撒切尔夫人"
+    source: "撒切尔夫人演讲"
   },
   {
     text: "政府的首要职责是保护人民，而不是管理他们的生活 \n Government's first duty is to protect the people, not run their lives.",
     author: "撒切尔夫人/Margaret Thatcher",
-    source: "撒切尔夫人"
+    source: "撒切尔夫人演讲"
+  },
+    {
+    text: "通往地狱之路往往由善意铺成 \n The road to hell is paved with good intentions.",
+    author: "冯·哈耶克/Friedrich August von Hayek",
+    source: "The Road to Serfdom"
   },
 ];
