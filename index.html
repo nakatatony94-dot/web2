@@ -508,6 +508,18 @@
   }
 
   .works-list { margin-bottom: 40px; }
+        
+  .text-section {
+    margin-bottom: 36px;
+  }
+
+  .text-block {
+    font-size: 14px;
+    line-height: 2;
+    color: var(--ink-faded);
+    white-space: pre-line;
+    font-weight: 300;
+  }
 
   .work-item {
     display: flex;
@@ -660,6 +672,8 @@
 </div>
 
 <script src="quotes.js"></script>
+<script src="thinker-bios.js"></script>
+<script src="thinker-contributions.js"></script>
 <script>
 // ══════════════════════════════════════════
 //  随机语录
@@ -890,6 +904,16 @@ function showDetail(id) {
        </div>
        <div class="photo-caption">肖像待添加</div>`;
 
+  const bioText =
+    (typeof thinkerBios !== 'undefined' && thinkerBios[p.id])
+      ? thinkerBios[p.id]
+      : '资料整理中...';
+
+  const contributionText =
+    (typeof thinkerContributions !== 'undefined' && thinkerContributions[p.id])
+      ? thinkerContributions[p.id]
+      : '资料整理中...';
+
   const worksHTML = p.works.map(w => `
     <div class="work-item">
       <span class="work-year">${w.year}</span>
@@ -919,6 +943,17 @@ function showDetail(id) {
       </div>
     </div>
     <div class="ornament">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>
+
+    <div class="text-section">
+      <p class="section-title">生平介绍</p>
+      <div class="text-block">${bioText}</div>
+    </div>
+
+    <div class="text-section">
+      <p class="section-title">思想贡献</p>
+      <div class="text-block">${contributionText}</div>
+    </div>
+
     <p class="section-title">著作列表</p>
     <div class="works-list">${worksHTML}</div>
   `;
