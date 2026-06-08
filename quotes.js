@@ -48,4 +48,39 @@ const quotes = [
     author: "冯·哈耶克/Friedrich August von Hayek",
     source: "The Road to Serfdom"
   },
+  {
+    text: "已经集中起来的权力，不会因为创造它的人的善意而变得无害 \n Concentrated power is not rendered harmless by the good intentions of those who create it.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+    {
+    text: "自由市场最重要的一个事实是：只有双方都受益，交换才会发生 \n The most important single central fact about a free market is that no exchange takes place unless both parties benefit.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+   {
+    text: "没有人会像花自己的钱那样谨慎地花别人的钱 \n Nobody spends somebody else's money as carefully as he spends his own.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+     {
+    text: "一个把平等置于自由之前的社会，最终既得不到平等，也得不到自由；一个把自由置于平等之前的社会，却能同时获得高度的自由和平等 \n A society that puts equality before freedom will get neither. A society that puts freedom before equality will get a high degree of both.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+     {
+    text: "判断政策和计划的最大错误之一，是根据它们的意图而不是结果来评判 \n One of the great mistakes is to judge policies and programs by their intentions rather than their results.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+     {
+    text: "政府解决问题的办法，通常和问题本身一样糟糕 \n The government solution to a problem is usually as bad as the problem.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
+     {
+    text: "如果把联邦政府交给撒哈拉沙漠管理，五年内就会出现沙子短缺 \n If you put the federal government in charge of the Sahara Desert, in five years there'd be a shortage of sand.",
+    author: "米尔顿·弗里德曼/Milton Friedman",
+    source: "资本主义与自由/ Capitalism and Freedom"
+  },
 ];
