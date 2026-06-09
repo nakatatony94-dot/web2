@@ -84,7 +84,7 @@ const quotes = [
     source: "资本主义与自由/ Capitalism and Freedom"
   },
    {
-    text: "税收（对劳动所得）相当于强迫劳动缺 \n Taxation of earnings from labor is on a par with forced labor.",
+    text: "对劳动所得征税相当于强迫劳动 \n Taxation of earnings from labor is on a par with forced labor.",
     author: "罗伯特·诺齐克/Robert Nozik",
     source: "无政府、国家与乌托邦/Anarchy, State, and Utopia"
   },
