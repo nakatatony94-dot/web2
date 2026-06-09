@@ -672,8 +672,8 @@
 </div>
 
 <script src="quotes.js"></script>
-<script src="thinker-bios.js"></script>
-<script src="thinker-contributions.js"></script>
+<script src="philosophers-index.js"></script>
+<script src="thinker-detail.js"></script>
 <script>
 // ══════════════════════════════════════════
 //  随机语录
@@ -709,129 +709,6 @@ function showQuote(animate = true) {
   }
 }
 
-// ══════════════════════════════════════════
-//  数据：思想家列表（可自由增删）
-// ══════════════════════════════════════════
-const philosophers = [
-  {
-    id: "Reagan",
-    lastName: "R",
-    nameCN: "罗纳德·里根",
-    nameEN: "Ronald Reagan",
-    years: "1911年2月6日—2004年6月5日",
-    century: "20-21世纪",
-    tradition: "保守主义政治家",
-    photo: "images/portraits/reagan.jpg",  // ← 改这里
-    bio: "里根是美国第40任总统(1981—1989年),第33任加利福尼亚州州长,好莱坞电影演员,被誉为“伟大的沟通者”(The Great Communicator)。他从影星转型为保守派政治领袖，推动“里根革命”，对冷战结束、美国经济复苏和保守主义复兴产生深远影响",    
-    works: [
-      { year: "~335 BC", titleEN: "Nicomachean Ethics", titleCN: "尼各马可伦理学", note: "幸福论与德性伦理学奠基之作", file: null },
-      { year: "~350 BC", titleEN: "Metaphysics", titleCN: "形而上学", note: "存在、本质与第一因的系统探讨", file: null },
-      { year: "~350 BC", titleEN: "Politics", titleCN: "政治学", note: "城邦制度与人的政治本性", file: null },
-      { year: "~350 BC", titleEN: "Poetics", titleCN: "诗学", note: "悲剧理论与模仿说", file: null },
-    ]
-  },
-  {
-    id: "Hayek",
-    lastName: "H",
-    nameCN: "哈耶克",
-    nameEN: "Friedrich August von Hayek",
-    years: "1899-1992",
-    century: "20世纪",
-    tradition: "奥地利学派",
-    photo: "images/portraits/hayek.jpg",
-    bio: "哈耶克出生于奥地利、后入籍英国,是经济学家、政治哲学家和社会理论家，是奥地利经济学派和古典自由主义的重要代表人物之一。\n 1974年，哈耶克与瑞典经济学家贡纳尔·默达尔共同获得诺贝尔经济学奖。\n 哈耶克曾任教于英国伦敦政治经济学院、美国芝加哥大学社会思想委员会和德国弗赖堡大学。",
-    works: [
-      { year: "1781", titleEN: "Critique of Pure Reason", titleCN: "纯粹理性批判", note: "知识何以可能的先验分析", file: null },
-      { year: "1785", titleEN: "Groundwork of the Metaphysics of Morals", titleCN: "道德形而上学基础", note: "定言命令的论证", file: null },
-      { year: "1788", titleEN: "Critique of Practical Reason", titleCN: "实践理性批判", note: "道德法则与意志自由", file: null },
-      { year: "1790", titleEN: "Critique of Judgment", titleCN: "判断力批判", note: "审美与目的论", file: null },
-      { year: "1795", titleEN: "Perpetual Peace", titleCN: "论永久和平", note: "国际联盟与世界公民权", file: null },
-    ]
-  },
-  {
-    id: "Friedman",
-    lastName: "F",
-    nameCN: "米尔顿·弗里德曼",
-    nameEN: "Milton Friedman",
-    years: "1912-2006",
-    century: "20-21世纪",
-    tradition: "芝加哥学派",
-    photo:  "images/portraits/friedman.jpg",
-    bio: "弗里德曼是20世纪最具影响力的美国经济学家之一,被誉为货币主义(Monetarism)的创始人、芝加哥经济学派(Chicago School)的第二代领军人物,以及自由市场资本主义的坚定倡导者",
-    works: [
-      { year: "~380 BC", titleEN: "The Republic", titleCN: "理想国", note: "正义、城邦与哲学王", file: null },
-      { year: "~385 BC", titleEN: "Symposium", titleCN: "会饮篇", note: "爱欲（Eros）的多重阐释", file: null },
-      { year: "~399 BC", titleEN: "Apology", titleCN: "申辩篇", note: "苏格拉底的辩护与殉道", file: null },
-      { year: "~360 BC", titleEN: "Phaedrus", titleCN: "斐德罗篇", note: "灵魂、爱与修辞术", file: null },
-      { year: "~360 BC", titleEN: "Timaeus", titleCN: "蒂迈欧篇", note: "宇宙创生与理念的物质化", file: null },
-    ]
-  },
-  {
-    id: "Mises",
-    lastName: "M",
-    nameCN: "路德维希·冯·米塞斯",
-    nameEN: "Ludwig von Mises",
-    years: "1889-1976",
-    century: "20世纪",
-    tradition: "奥地利学派",
-    photo: "images/portraits/mises.jpg",
-    bio: "20世纪最伟大的经济学家、哲学家和古典自由主义思想家之一,被誉为“奥地利经济学派的院长”（Dean of the Austrian School），也是现代自由意志主义（Libertarianism）运动的重要奠基人",
-    works: [
-      { year: "1927", titleEN: "Being and Time", titleCN: "存在与时间", note: "此在、时间性与存在的意义", file: null },
-      { year: "1935", titleEN: "Introduction to Metaphysics", titleCN: "形而上学导论", note: "存在问题的重新提问", file: null },
-      { year: "1950", titleEN: "The Origin of the Work of Art", titleCN: "艺术作品的本源", note: "真理与大地的争执", file: null },
-      { year: "1954", titleEN: "The Question Concerning Technology", titleCN: "技术的追问", note: "现代技术的座架（Gestell）", file: null },
-    ]
-  },
-  {
-    id: "Thatcher",
-    lastName: "T",
-    nameCN: "玛格丽特·撒切尔",
-    nameEN: "Margaret Thatchere",
-    years: "1925-2013",
-    century: "20世纪",
-    tradition: "保守主义政治家",
-    photo: "images/portraits/thatcher.jpg",
-    bio: "英国历史上第一位女首相,也是20世纪最具影响力的政治人物之一,被称为铁娘子(The Iron Lady)",
-    works: [
-      { year: "1938", titleEN: "Nausea", titleCN: "恶心", note: "荒诞感与偶然性的文学呈现", file: null },
-      { year: "1943", titleEN: "Being and Nothingness", titleCN: "存在与虚无", note: "自在存在与自为存在", file: null },
-      { year: "1945", titleEN: "Existentialism Is a Humanism", titleCN: "存在主义是一种人道主义", note: "通俗演讲，存在主义宣言", file: null },
-      { year: "1960", titleEN: "Critique of Dialectical Reason", titleCN: "辩证理性批判", note: "存在主义与马克思主义的综合", file: null },
-    ]
-  },
-  {
-    id: "wittgenstein",
-    lastName: "W",
-    nameCN: "维特根斯坦",
-    nameEN: "Ludwig Wittgenstein",
-    years: "1889–1951",
-    century: "20世纪",
-    tradition: "分析哲学",
-    photo: null,
-    bio: "奥地利裔英国哲学家，二十世纪最重要的分析哲学家之一。早期《逻辑哲学论》以图像论描述语言与世界的关系，认为哲学问题源于语言的误用；晚期《哲学研究》转而以\"语言游戏\"和\"家族相似\"批判本质主义，开创日常语言哲学传统。",
-    works: [
-      { year: "1921", titleEN: "Tractatus Logico-Philosophicus", titleCN: "逻辑哲学论", note: "语言图像论，可说与不可说", file: null },
-      { year: "1953", titleEN: "Philosophical Investigations", titleCN: "哲学研究", note: "语言游戏与意义使用论", file: null },
-      { year: "1969", titleEN: "On Certainty", titleCN: "论确定性", note: "知识、怀疑与语言基础", file: null },
-    ]
-  },
-  {
-    id: "zhuangzi",
-    lastName: "Z",
-    nameCN: "庄子",
-    nameEN: "Zhuangzi",
-    years: "约 369–286 BC",
-    century: "公元前4世纪",
-    tradition: "道家 / 中国哲学",
-    photo: null,
-    bio: "战国时期道家哲学家，与老子并称\"老庄\"。以寓言、隐喻和诗性语言探讨道的本质、生死的齐一、以及超越世俗是非的逍遥之境。其哲学蕴含深刻的相对主义与认识论反思，对后世中国文学、禅宗及美学产生了不可磨灭的影响。",
-    works: [
-      { year: "约 300 BC", titleEN: "Zhuangzi (Inner Chapters)", titleCN: "庄子·内篇", note: "逍遥游、齐物论等七篇", file: null },
-      { year: "约 300 BC", titleEN: "Zhuangzi (Outer Chapters)", titleCN: "庄子·外篇", note: "秋水、至乐等十五篇", file: null },
-    ]
-  },
-];
 
 // ══════════════════════════════════════════
 //  构建侧边栏
@@ -904,15 +781,9 @@ function showDetail(id) {
        </div>
        <div class="photo-caption">肖像待添加</div>`;
 
-  const bioText =
-    (typeof thinkerBios !== 'undefined' && thinkerBios[p.id])
-      ? thinkerBios[p.id]
-      : '资料整理中...';
-
-  const contributionText =
-    (typeof thinkerContributions !== 'undefined' && thinkerContributions[p.id])
-      ? thinkerContributions[p.id]
-      : '资料整理中...';
+  const detail = (typeof thinkerDetail !== 'undefined' && thinkerDetail[p.id]) || {};
+  const bioText          = detail.bio          || '资料整理中...';
+  const contributionText = detail.contribution || '资料整理中...';
 
   const worksHTML = p.works.map(w => `
     <div class="work-item">
