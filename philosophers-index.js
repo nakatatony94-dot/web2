@@ -320,5 +320,54 @@ const philosophers = [
     }
   ]
 },
+//米莱
+{
+  id: "Milei",
+  lastName: "Milei",
+  nameCN: "哈维尔·米莱",
+  nameEN: "Javier Milei",
+  years: "1970–",
+  century: "20–21世纪",
+  tradition: "奥地利学派 / 无政府资本主义 / 自由意志主义",
+  photo: "images/portraits/milei.jpg",
+  bio: `阿根廷经济学家、政治家，现任阿根廷总统（2023年起）。米莱是坚定的奥地利学派拥护者，受米塞斯、哈耶克和罗斯巴德深刻影响，自称“无政府资本主义者”。他以激进的反国家干预、反中央银行、支持自由市场和大幅削减政府支出的立场著称，曾任大学经济学教授和电视评论员，以独特风格（“电锯人”）在阿根廷政坛崛起。2023年当选总统后，推动大规模去监管、财政紧缩和反通胀改革，被视为当代奥派思想在现实政治中的重要实践者。`,
 
+  works: [
+    {
+      year: "2014",
+      titleEN: "Lecturas de Economía en tiempos de Kirchnerismo",
+      titleCN: "基什内尔主义时代的经济学读物",
+      note: "早期经济学评论集，批判阿根廷当时的干预主义政策",
+      file: null
+    },
+    {
+      year: "2019",
+      titleEN: "Libertad, Libertad, Libertad",
+      titleCN: "自由，自由，自由",
+      note: "阐述自由意志主义核心理念",
+      file: null
+    },
+    {
+      year: "2022",
+      titleEN: "El camino del libertario",
+      titleCN: "自由主义之路",
+      note: "系统介绍其自由意志主义思想，被视为竞选纲领性著作",
+      file: null
+    },
+    {
+      year: "2023",
+      titleEN: "El fin de la inflación",
+      titleCN: "结束通货膨胀",
+      note: "聚焦货币政策与反通胀策略，反映其奥派商业周期观点",
+      file: null
+    },
+    {
+      year: "2024",
+      titleEN: "Capitalismo, socialismo y la trampa neoclásica",
+      titleCN: "资本主义、社会主义与新古典主义陷阱",
+      note: "批判新古典经济学，捍卫奥派与罗斯巴德式资本主义理论",
+      file: null
+    }
+  ]
+},
 ];
