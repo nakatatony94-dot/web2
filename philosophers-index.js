@@ -370,4 +370,54 @@ const philosophers = [
     }
   ]
 },
+//瓦茨拉夫·克劳斯
+{
+  id: "Klaus",
+  lastName: "Klaus",
+  nameCN: "瓦茨拉夫·克劳斯",
+  nameEN: "Václav Klaus",
+  years: "1941–",
+  century: "20–21世纪",
+  tradition: "奥地利学派 / 古典自由主义 / 保守自由主义",
+  photo: "images/portraits/klaus.jpg",
+  bio: `捷克经济学家、政治家，曾任捷克总理（1992–1997）和总统（2003–2013）。克劳斯是后共产主义时代东欧经济转型的关键人物，受弗里德里希·哈耶克和奥地利学派深刻影响，坚定主张自由市场、私有化、去监管和反中央计划。他主导了捷克从计划经济向市场经济的“天鹅绒转型”，强调自发秩序与有限政府，在气候政策上强烈反对环保主义意识形态，被视为当代将奥派思想应用于现实政治的重要实践者之一。`,
+
+  works: [
+    {
+      year: "2007",
+      titleEN: "Blue Planet in Green Shackles",
+      titleCN: "绿色枷锁中的蓝色星球",
+      note: "批判环保主义意识形态对自由与繁荣的威胁，最具国际影响力的著作",
+      file: null
+    },
+    {
+      year: "2000s",
+      titleEN: "On the Road to Democracy",
+      titleCN: "通往民主之路",
+      note: "论述捷克从共产主义向自由社会的转型经验",
+      file: null
+    },
+    {
+      year: "2010s",
+      titleEN: "Europe: The Shattering of Illusions",
+      titleCN: "欧洲：幻觉的破碎",
+      note: "批判欧盟超国家主义与欧元政策",
+      file: null
+    },
+    {
+      year: "2023",
+      titleEN: "Brave New West",
+      titleCN: "勇敢新西方",
+      note: "晚期著作，讨论西方社会面临的当代挑战",
+      file: null
+    },
+    {
+      year: "2025",
+      titleEN: "In Defence of Normalcy",
+      titleCN: "捍卫正常性",
+      note: "最新著作，捍卫传统价值观与常识，反对激进进步主义",
+      file: null
+    }
+  ]
+},
 ];
