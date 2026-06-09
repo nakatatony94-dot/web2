@@ -136,7 +136,41 @@ const philosophers = [
       { year: "1969", titleEN: "On Certainty", titleCN: "论确定性", note: "知识、怀疑与语言基础的最后沉思", file: null },
     ]
   },
-
+  //庞巴维克
+{
+  id: "BohmBawerk",
+  lastName: "Böhm-Bawerk",
+  nameCN: "欧根·冯·庞巴维克",
+  nameEN: "Eugen von Böhm-Bawerk",
+  years: "1851–1914",
+  century: "19–20世纪",
+  tradition: "奥地利学派",
+  photo: "images/portraits/bohm-bawerk.jpg",
+  bio: `奥地利学派核心经济学家之一，以资本理论与利息理论闻名，是边际主义与资本时间结构分析的关键奠基者之一。他系统发展了“迂回生产”理论，并对马克思的劳动价值论与资本理论提出经典批判。`,
+  works: [
+    {
+      year: "1884–1889",
+      titleEN: "Capital and Interest",
+      titleCN: "资本与利息",
+      note: "三卷本巨著，系统分析利息的起源与资本理论基础",
+      file: null
+    },
+    {
+      year: "1889",
+      titleEN: "The Positive Theory of Capital",
+      titleCN: "资本的实证理论",
+      note: "提出迂回生产与资本结构的核心分析框架",
+      file: null
+    },
+    {
+      year: "1896",
+      titleEN: "Karl Marx and the Close of His System",
+      titleCN: "卡尔·马克思体系的终结",
+      note: "对马克思经济学体系的经典批判文本",
+      file: null
+    }
+  ]
+},
   // ── 庄子 ────────────────────────────────
   {
     id: "zhuangzi",
