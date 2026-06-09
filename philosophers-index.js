@@ -171,21 +171,154 @@ const philosophers = [
     }
   ]
 },
-  // ── 庄子 ────────────────────────────────
-  {
-    id: "zhuangzi",
-    lastName: "Z",
-    nameCN: "庄子",
-    nameEN: "Zhuangzi",
-    years: "约 369–286 BC",
-    century: "公元前4世纪",
-    tradition: "道家 / 中国哲学",
-    photo: null,
-    bio: `战国时期道家哲学家，与老子并称"老庄"。以寓言、隐喻和诗性语言探讨道的本质、生死的齐一，以及超越世俗是非的逍遥之境。`,
-    works: [
-      { year: "约 300 BC", titleEN: "Zhuangzi (Inner Chapters)", titleCN: "庄子·内篇", note: "逍遥游、齐物论等七篇，公认为庄子亲作", file: null },
-      { year: "约 300 BC", titleEN: "Zhuangzi (Outer Chapters)", titleCN: "庄子·外篇", note: "秋水、至乐等十五篇，或为后学所作", file: null },
-    ]
-  },
+  // ──罗斯巴德────────────────────────────────
+{
+  id: "Rothbard",
+  lastName: "Rothbard",
+  nameCN: "穆瑞·罗斯巴德",
+  nameEN: "Murray Newton Rothbard",
+  years: "1926–1995",
+  century: "20世纪",
+  tradition: "奥地利学派 / 自由意志主义",
+  photo: "images/portraits/rothbard.jpg",
+  bio: `美国经济学家、历史学家和政治哲学家，被誉为现代自由意志主义（Libertarianism）的主要奠基人之一，也是20世纪奥地利学派最重要的继承者和传播者。罗斯巴德在米塞斯经济学基础上构建了完整的无政府资本主义（Anarcho-Capitalism）理论体系，将自由市场原则扩展至法律、安全和公共服务领域，对当代自由意志主义运动产生深远影响。`,
+
+  works: [
+    {
+      year: "1962",
+      titleEN: "Man, Economy, and State",
+      titleCN: "人、经济与国家",
+      note: "系统重建奥地利学派经济学，被视为现代奥派经济学经典著作",
+      file: null
+    },
+    {
+      year: "1963",
+      titleEN: "America's Great Depression",
+      titleCN: "美国大萧条",
+      note: "运用奥地利商业周期理论解释1929年经济危机",
+      file: null
+    },
+    {
+      year: "1973",
+      titleEN: "For a New Liberty",
+      titleCN: "为了新的自由",
+      note: "自由意志主义政治哲学纲领性著作",
+      file: null
+    },
+    {
+      year: "1982",
+      titleEN: "The Ethics of Liberty",
+      titleCN: "自由的伦理",
+      note: "从自然权利角度论证自由社会的道德基础",
+      file: null
+    },
+    {
+      year: "1995",
+      titleEN: "An Austrian Perspective on the History of Economic Thought",
+      titleCN: "经济思想史：奥地利学派视角",
+      note: "两卷本巨著，以奥地利学派视角重述经济思想发展史",
+      file: null
+    }
+  ]
+},
+//-----------柯兹纳-------------------
+{
+  id: "Kirzner",
+  lastName: "Kirzner",
+  nameCN: "伊斯雷尔·柯兹纳",
+  nameEN: "Israel Meir Kirzner",
+  years: "1930–",
+  century: "20–21世纪",
+  tradition: "奥地利学派",
+  photo: "images/portraits/kirzner.jpg",
+  bio: `美国经济学家、奥地利学派第三代代表人物，路德维希·冯·米塞斯最重要的学生之一。柯兹纳以企业家理论（Entrepreneurship Theory）闻名，系统阐述了企业家在市场发现过程中的核心作用。他强调市场并非静态均衡状态，而是一个持续发现和协调的动态过程，其理论成为现代创业研究和市场过程理论的重要基础，被誉为“企业家经济学之父”。`,
+
+  works: [
+    {
+      year: "1973",
+      titleEN: "Competition and Entrepreneurship",
+      titleCN: "竞争与企业家精神",
+      note: "企业家发现理论的代表作，奠定现代奥派企业家理论基础",
+      file: null
+    },
+    {
+      year: "1963",
+      titleEN: "Market Theory and the Price System",
+      titleCN: "市场理论与价格体系",
+      note: "系统介绍奥地利学派市场过程理论",
+      file: null
+    },
+    {
+      year: "1979",
+      titleEN: "Perception, Opportunity, and Profit",
+      titleCN: "认知、机会与利润",
+      note: "分析企业家发现市场机会的过程",
+      file: null
+    },
+    {
+      year: "1992",
+      titleEN: "The Meaning of Market Process",
+      titleCN: "市场过程的意义",
+      note: "总结和发展市场过程理论的重要论文集",
+      file: null
+    },
+    {
+      year: "2000",
+      titleEN: "The Driving Force of the Market",
+      titleCN: "市场的驱动力",
+      note: "进一步阐述企业家警觉性与市场协调机制",
+      file: null
+    }
+  ]
+},
+{
+  id: "Hoppe",
+  lastName: "Hoppe",
+  nameCN: "汉斯-赫尔曼·霍普",
+  nameEN: "Hans-Hermann Hoppe",
+  years: "1949–",
+  century: "20–21世纪",
+  tradition: "奥地利学派 / 自由意志主义",
+  photo: "images/portraits/hoppe.jpg",
+  bio: `德国裔美国经济学家、政治哲学家，奥地利学派和自由意志主义的重要代表人物之一。霍普师从尤尔根·哈贝马斯，后受米塞斯和罗斯巴德思想影响，成为无政府资本主义（Anarcho-Capitalism）的主要理论家。他以“论证伦理学”（Argumentation Ethics）闻名，试图从逻辑和伦理层面为私有产权与自由社会提供哲学基础，并对民主制度、国家权力和现代福利国家提出系统批判。`,
+
+  works: [
+    {
+      year: "1989",
+      titleEN: "A Theory of Socialism and Capitalism",
+      titleCN: "社会主义与资本主义理论",
+      note: "从产权视角比较不同社会制度，被视为霍普成名作",
+      file: null
+    },
+    {
+      year: "1993",
+      titleEN: "The Economics and Ethics of Private Property",
+      titleCN: "私有财产的经济学与伦理学",
+      note: "系统阐述论证伦理学和私有产权理论",
+      file: null
+    },
+    {
+      year: "2001",
+      titleEN: "Democracy: The God That Failed",
+      titleCN: "民主：失败的上帝",
+      note: "对现代民主制度最具影响力的批判性著作",
+      file: null
+    },
+    {
+      year: "2006",
+      titleEN: "The Economics and Ethics of Private Property: Studies in Political Economy and Philosophy",
+      titleCN: "私有财产的经济学与伦理学（增订版）",
+      note: "汇集霍普政治哲学与经济学的重要论文",
+      file: null
+    },
+    {
+      year: "2012",
+      titleEN: "From Aristocracy to Monarchy to Democracy",
+      titleCN: "从贵族制到君主制再到民主制",
+      note: "从历史视角分析西方政治制度演变",
+      file: null
+    }
+  ]
+},
 
 ];
