@@ -606,6 +606,73 @@
     font-family: 'EB Garamond', serif;
   }
 
+  /* ── 关于按钮 ── */
+  #about-btn {
+    display: block;
+    margin: 16px 16px 4px;
+    padding: 8px 14px;
+    font-family: 'EB Garamond', serif;
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: var(--sidebar-text);
+    background: none;
+    border: 1px solid #3a3020;
+    cursor: pointer;
+    text-align: left;
+    transition: all 0.15s;
+    width: calc(100% - 32px);
+  }
+  #about-btn:hover {
+    border-color: var(--accent);
+    color: var(--sidebar-hover);
+  }
+  #about-btn.active {
+    border-color: var(--accent-light);
+    color: var(--sidebar-hover);
+    background: rgba(255,255,255,0.06);
+  }
+
+  /* ── 关于页面 ── */
+  #about-view {
+    display: none;
+    padding: 40px 50px 80px;
+  }
+  #about-view.visible { display: block; }
+
+  .about-hero-img {
+    width: 100%;
+    max-height: 360px;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+    margin-bottom: 32px;
+    border: 1px solid var(--rule);
+    filter: sepia(15%);
+  }
+
+  .about-section {
+    margin-bottom: 40px;
+  }
+
+  .about-lead {
+    font-family: 'EB Garamond', serif;
+    font-style: italic;
+    font-size: 20px;
+    line-height: 1.8;
+    color: var(--ink-faded);
+    margin-bottom: 28px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .about-text {
+    font-size: 14px;
+    line-height: 2.1;
+    color: var(--ink-faded);
+    font-weight: 300;
+    white-space: pre-line;
+  }
+
   /* scrollbar */
   #sidebar::-webkit-scrollbar { width: 4px; }
   #sidebar::-webkit-scrollbar-track { background: transparent; }
@@ -627,6 +694,7 @@
     <h1>保守主义思想<br>档案馆</h1>
     <p>Philosophi Archivum</p>
   </div>
+  <button id="about-btn" onclick="showAbout()">关于保守主义</button>
   <div id="sidebar-nav"></div>
 </nav>
 
@@ -663,6 +731,11 @@
       <div class="index-grid" id="index-grid"></div>
     </div>
 
+    <!-- ABOUT -->
+    <div id="about-view">
+      <div id="about-content"></div>
+    </div>
+
     <!-- DETAIL -->
     <div id="detail-view">
       <button class="back-btn" onclick="showHome()">返回索引</button>
@@ -674,6 +747,7 @@
 <script src="quotes.js"></script>
 <script src="philosophers-index.js"></script>
 <script src="thinker-detail.js"></script>
+<script src="about-conservatism.js"></script>
 <script>
 // ══════════════════════════════════════════
 //  随机语录
@@ -829,8 +903,46 @@ function showDetail(id) {
     <div class="works-list">${worksHTML}</div>
   `;
 
+  document.getElementById('about-btn').classList.remove('active');
   document.getElementById('home-view').classList.add('hidden');
+  document.getElementById('about-view').classList.remove('visible');
   document.getElementById('detail-view').classList.add('visible');
+  window.scrollTo({ top: 0 });
+}
+
+// ══════════════════════════════════════════
+//  关于保守主义
+// ══════════════════════════════════════════
+function showAbout() {
+  const data = (typeof aboutConservatism !== 'undefined') ? aboutConservatism : null;
+  if (!data) return;
+
+  // 激活按钮状态
+  document.getElementById('about-btn').classList.add('active');
+  document.querySelectorAll('.philosopher-link').forEach(a => a.classList.remove('active'));
+
+  // 图片区
+  const imgHTML = data.image
+    ? `<img class="about-hero-img" src="${data.image}" alt="${data.title}">`
+    : '';
+
+  // 正文区（支持多个 sections，每个有 title + text）
+  const sectionsHTML = (data.sections || []).map(s => `
+    <div class="about-section">
+      <p class="section-title">${s.title}</p>
+      <div class="about-text">${s.text}</div>
+    </div>
+  `).join('<div class="ornament">✦ &nbsp;&nbsp; ✦ &nbsp;&nbsp; ✦</div>');
+
+  document.getElementById('about-content').innerHTML = `
+    ${imgHTML}
+    ${data.lead ? `<div class="about-lead">${data.lead}</div>` : ''}
+    ${sectionsHTML}
+  `;
+
+  document.getElementById('home-view').classList.add('hidden');
+  document.getElementById('detail-view').classList.remove('visible');
+  document.getElementById('about-view').classList.add('visible');
   window.scrollTo({ top: 0 });
 }
 
@@ -839,8 +951,10 @@ function showDetail(id) {
 // ══════════════════════════════════════════
 function showHome() {
   document.querySelectorAll('.philosopher-link').forEach(a => a.classList.remove('active'));
+  document.getElementById('about-btn').classList.remove('active');
   document.getElementById('home-view').classList.remove('hidden');
   document.getElementById('detail-view').classList.remove('visible');
+  document.getElementById('about-view').classList.remove('visible');
   window.scrollTo({ top: 0 });
 }
 
