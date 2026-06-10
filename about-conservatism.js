@@ -16,9 +16,9 @@
 const aboutConservatism = {
 
   image: "images/about-conservatism.webp",   // 替换为实际图片路径，无图片填 null
-  title: "关于保守主义",
+  title: "关于保守主义及本站 \n About Conservatism and This Website",
 
-  lead: `保守主义不是对变化的拒绝，而是对轻率变化的警惕；不是维护既得利益，而是珍视经过时间检验的秩序与自由。`,
+  lead: `保守主义不是对变化的拒绝，而是对轻率变化的警惕；不是维护既得利益，而是珍视经过时间检验的秩序与自由。\n Conservatism is not the refusal of change, but a wariness of hasty and ill-considered change. It is not the defense of vested interests, but the preservation of the order and freedom that have been proven by time.`,
 
   sections: [
     {
