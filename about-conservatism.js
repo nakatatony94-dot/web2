@@ -15,7 +15,7 @@
 
 const aboutConservatism = {
 
-  image: "images/about-conservatism.png",   // 替换为实际图片路径，无图片填 null
+  image: "images/about-conservatism.webp",   // 替换为实际图片路径，无图片填 null
   title: "关于保守主义",
 
   lead: `保守主义不是对变化的拒绝，而是对轻率变化的警惕；不是维护既得利益，而是珍视经过时间检验的秩序与自由。`,
