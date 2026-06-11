@@ -257,7 +257,7 @@ const philosophers = [
 {
   id: "Kirzner",
   lastName: "Kirzner",
-  nameCN: "伊斯雷尔·柯兹纳",
+  nameCN: "以色列·柯兹纳",
   nameEN: "Israel Meir Kirzner",
   years: "1930–",
   century: "20–21世纪",
@@ -303,6 +303,7 @@ const philosophers = [
     }
   ]
 },
+//-------------------霍普-----------------------
 {
   id: "Hoppe",
   lastName: "Hoppe",
