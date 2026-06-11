@@ -79,7 +79,7 @@ const quotes = [
     source: "资本主义与自由/ Capitalism and Freedom"
   },
      {
-    text: "如果把联邦政府交给撒哈拉沙漠管理，五年内就会出现沙子短缺 \n If you put the federal government in charge of the Sahara Desert, in five years there'd be a shortage of sand.",
+    text: "如果让联邦政府管理撒哈拉沙漠，五年内就会出现沙子短缺 \n If you put the federal government in charge of the Sahara Desert, in five years there'd be a shortage of sand.",
     author: "米尔顿·弗里德曼/Milton Friedman",
     source: "资本主义与自由/ Capitalism and Freedom"
   },

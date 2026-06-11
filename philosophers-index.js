@@ -119,23 +119,6 @@ const philosophers = [
     ]
   },
 
-  // ── 路德维希·维特根斯坦 ──────────────────
-  {
-    id: "wittgenstein",
-    lastName: "W",
-    nameCN: "路德维希·维特根斯坦",
-    nameEN: "Ludwig Wittgenstein",
-    years: "1889–1951",
-    century: "20世纪",
-    tradition: "分析哲学",
-    photo: null,
-    bio: `奥地利裔英国哲学家，20世纪最重要的分析哲学家之一。早期以图像论描述语言与世界的关系，晚期以"语言游戏"批判本质主义，开创日常语言哲学传统。`,
-    works: [
-      { year: "1921", titleEN: "Tractatus Logico-Philosophicus", titleCN: "逻辑哲学论", note: "语言图像论，可说与不可说的界限", file: null },
-      { year: "1953", titleEN: "Philosophical Investigations", titleCN: "哲学研究", note: "语言游戏与意义使用论，晚期思想的代表作", file: null },
-      { year: "1969", titleEN: "On Certainty", titleCN: "论确定性", note: "知识、怀疑与语言基础的最后沉思", file: null },
-    ]
-  },
   //庞巴维克
 {
   id: "BohmBawerk",
@@ -221,6 +204,55 @@ const philosophers = [
     }
   ]
 },
+// ── 罗伯特·诺齐克 ──────────────────────────
+  {
+    id: "Nozick",
+    lastName: "N",
+    nameCN: "罗伯特·诺齐克",
+    nameEN: "Robert Nozick",
+    years: "1938–2002",
+    century: "20世纪",
+    tradition: "自由意志主义 / 分析哲学",
+    photo: "images/portraits/nozick.jpg",
+    bio: `美国政治哲学家，哈佛大学教授。以《无政府、国家与乌托邦》确立了自由意志主义政治哲学的学术地位，以"权利优先"原则对抗罗尔斯的分配正义论，主张最小国家是唯一合法的国家形式。`,
+    works: [
+      {
+        year: "1974",
+        titleEN: "Anarchy, State, and Utopia",
+        titleCN: "无政府、国家与乌托邦",
+        note: "自由意志主义政治哲学的经典之作，荣获1975年美国国家图书奖",
+        file: null
+      },
+      {
+        year: "1981",
+        titleEN: "Philosophical Explanations",
+        titleCN: "哲学解释",
+        note: "涵盖认识论、个人同一性与伦理学的综合性哲学著作",
+        file: null
+      },
+      {
+        year: "1989",
+        titleEN: "The Examined Life",
+        titleCN: "被审视的人生",
+        note: "对生命意义、爱、死亡与幸福的哲学沉思",
+        file: null
+      },
+      {
+        year: "1993",
+        titleEN: "The Nature of Rationality",
+        titleCN: "理性的本质",
+        note: "探讨理性信念与决策理论的认识论研究",
+        file: null
+      },
+      {
+        year: "2001",
+        titleEN: "Invariances",
+        titleCN: "不变性",
+        note: "形而上学与客观实在结构的最后著作",
+        file: null
+      },
+    ]
+  },
 //-----------柯兹纳-------------------
 {
   id: "Kirzner",
