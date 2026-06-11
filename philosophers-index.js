@@ -162,7 +162,7 @@ const philosophers = [
   nameEN: "Murray Newton Rothbard",
   years: "1926–1995",
   century: "20世纪",
-  tradition: "奥地利学派 / 自由意志主义",
+  tradition: "奥地利学派  / 自由意志主义",
   photo: "images/portraits/rothbard.jpg",
   bio: `美国经济学家、历史学家和政治哲学家，被誉为现代自由意志主义（Libertarianism）的主要奠基人之一，也是20世纪奥地利学派最重要的继承者和传播者。罗斯巴德在米塞斯经济学基础上构建了完整的无政府资本主义（Anarcho-Capitalism）理论体系，将自由市场原则扩展至法律、安全和公共服务领域，对当代自由意志主义运动产生深远影响。`,
 
