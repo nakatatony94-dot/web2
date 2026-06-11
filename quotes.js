@@ -88,4 +88,19 @@ const quotes = [
     author: "罗伯特·诺齐克/Robert Nozik",
     source: "无政府、国家与乌托邦/Anarchy, State, and Utopia"
   },
+  {
+    text: "市场经济不仅是一种经济制度，更是一种人类自由的制度 \n The market economy is not merely an economic arrangement. It is a system of human freedom.",
+    author: "瓦兹拉夫·克劳斯/Václav Klaus",
+    source: "克劳斯个人演讲"
+  },
+{
+    text: "中央计划摧毁责任感、主动性和创造力 \n Central planning destroys responsibility, initiative and creativity.",
+    author: "瓦兹拉夫·克劳斯/Václav Klaus",
+    source: "克劳斯个人演讲"
+ },
+ {
+    text: "政府干预通常制造的问题比解决的问题更多 \n Government intervention usually creates more problems than it solves.",
+    author: "瓦兹拉夫·克劳斯/Václav Klaus",
+    source: "克劳斯个人演讲"
+ },
 ];
