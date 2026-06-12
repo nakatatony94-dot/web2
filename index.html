@@ -692,6 +692,71 @@
     .detail-photo { width: 100%; height: 200px; }
   }
 
+  /* ── EXT LINKS ── */
+  #ext-links {
+    padding: 32px 50px 36px;
+    border-top: 1px solid var(--rule);
+    background: var(--parchment);
+  }
+
+  #ext-links-title {
+    font-family: 'EB Garamond', serif;
+    font-weight: 400;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--rule);
+  }
+
+  #ext-links-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .ext-link-card {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    padding: 14px 16px;
+    border: 1px solid var(--rule);
+    text-decoration: none;
+    background: var(--parchment);
+    transition: all 0.15s;
+  }
+
+  .ext-link-card:hover {
+    border-color: var(--accent);
+    background: var(--parchment-dark);
+  }
+
+  .ext-link-card:hover .ext-link-name {
+    color: var(--accent);
+  }
+
+  .ext-link-name {
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    color: var(--ink);
+    transition: color 0.15s;
+    line-height: 1.3;
+  }
+
+  .ext-link-desc {
+    font-family: 'Noto Serif SC', serif;
+    font-size: 11px;
+    color: var(--ink-light);
+    font-weight: 300;
+  }
+
+  @media (max-width: 680px) {
+    #ext-links { padding: 24px 20px 28px; }
+    #ext-links-grid { grid-template-columns: 1fr 1fr; }
+  }
+
   /* ── FOOTER BAR ── */
   #footer-bar {
     position: fixed;
@@ -954,6 +1019,36 @@
 
 </div>
 
+      <!-- 外部链接 -->
+      <div id="ext-links">
+        <h3 id="ext-links-title">延伸阅读 Further Reading</h3>
+        <div id="ext-links-grid">
+          <a class="ext-link-card" href="https://www.cato.org" target="_blank" rel="noopener">
+            <span class="ext-link-name">Cato Institute</span>
+            <span class="ext-link-desc">自由意志主义政策研究</span>
+          </a>
+          <a class="ext-link-card" href="https://www.heritage.org" target="_blank" rel="noopener">
+            <span class="ext-link-name">The Heritage Foundation</span>
+            <span class="ext-link-desc">美国保守主义智库</span>
+          </a>
+          <a class="ext-link-card" href="https://kirkcenter.org" target="_blank" rel="noopener">
+            <span class="ext-link-name">The Russell Kirk Center</span>
+            <span class="ext-link-desc">传统保守主义思想研究</span>
+          </a>
+          <a class="ext-link-card" href="https://www.theamericanconservative.com" target="_blank" rel="noopener">
+            <span class="ext-link-name">The American Conservative</span>
+            <span class="ext-link-desc">保守主义评论与时评</span>
+          </a>
+          <a class="ext-link-card" href="https://www.imaginativeconservative.org" target="_blank" rel="noopener">
+            <span class="ext-link-name">The Imaginative Conservative</span>
+            <span class="ext-link-desc">文化与人文保守主义</span>
+          </a>
+          <a class="ext-link-card" href="https://mises.org" target="_blank" rel="noopener">
+            <span class="ext-link-name">Mises Institute</span>
+            <span class="ext-link-desc">奥地利经济学派资源库</span>
+          </a>
+        </div>
+      </div>
     </div>
 
     <!-- ABOUT -->
