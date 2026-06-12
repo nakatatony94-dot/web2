@@ -4,19 +4,19 @@
 // ══════════════════════════════════════════
 const quotes = [
   {
-    text: "自由从来不会超过一代人就能灭绝。我们没有把它通过血脉传给我们的孩子。它必须由我们去奋斗、保护，并传给他们，让他们也同样去做，否则有一天我们会在暮年告诉我们的孩子和孩子的孩子，美国曾经是一个人们享有自由的地方\n Freedom is never more than one generation away from extinction. We didn't pass it to our children in the bloodstream. It must be fought for, protected, and handed on for them to do the same, or one day we will spend our sunset years telling our children and our children's children what it was once like in the United States where men were free",
-    author: "里根总统/Ronald Reagan",
-    source: "里根总统演讲"
+    text: "文明的根基并非经济，而是道德与思想\n The roots of civilization are not economic; they are moral and intellectual.",
+    author: "罗素·柯克/ Russell Kirk",
+    source: "The Conservative Mind"
   },
   {
-    text: "如果我们在这里失去自由，就没有地方可以逃了。这是地球上最后的立足点。 \n If we lose freedom here, there is no place to escape to. This is the last stand on earth.",
-    author: "里根总统/Ronald Reagan",
-    source: "里根总统演讲"
+    text: "保守主义不是一种意识形态，而是一种看待文明社会秩序的方式 \n Conservatism is not an ideology, but a way of looking at the civil social order.",
+    author: "罗素·柯克/ Russell Kirk",
+    source: "The Politics of Prudence"
   },
   {
-    text: "自由是质疑和改变既有做事方式的权利。它是市场的持续革命。它是认识到没有一个人、没有单一权威或政府垄断真理，而每一个个体生命都无限珍贵 \n Freedom is the right to question and change the established way of doing things. It is the continuous revolution of the marketplace",
-    author: "里根总统/Ronald Reagan",
-    source: "里根总统演讲"
+    text: "个人可能是愚昧的，但人类世代积累的智慧却是睿智的 \n The individual is foolish, but the species is wise.",
+    author: "伯克/Edmund Burke",
+    source: "Edmund Burke"
   },
   {
     text: "在目前的危机中,政府并不是我们问题的解决办法,政府本身才是问题所在。\n In this present crisis, government is not the solution to our problem; government is the problem",
@@ -102,5 +102,15 @@ const quotes = [
     text: "政府干预通常制造的问题比解决的问题更多 \n Government intervention usually creates more problems than it solves.",
     author: "瓦兹拉夫·克劳斯/Václav Klaus",
     source: "克劳斯个人演讲"
+ },
+  {
+    text: "变革与改革若未经审慎考量，往往成为毁灭而非复兴的工具 \n Change and reform, unless carefully considered, may be the instruments of destruction rather than renewal.",
+    author: "罗素·柯克/Russell Kirk",
+    source: "The Politics of Prudence"
+ },
+   {
+    text: "审慎是政治家的首要美德 \n Prudence is the first virtue of statesmen.",
+    author: "伯克/Edmund Buker",
+    source: "The Politics of Prudence"
  },
 ];
