@@ -154,6 +154,43 @@ const philosophers = [
     }
   ]
 },
+//罗素·柯克
+{
+  id: "Kirk",
+  lastName: "Kirk",
+  nameCN: "罗素·柯克",
+  nameEN: "Russell Kirk",
+  years: "1918–1994",
+  century: "20世纪",
+  tradition: "保守主义",
+  photo: "images/portraits/kirk.jpg",
+  bio: `美国保守主义思想家，现代美国保守主义运动的主要奠基人之一。
+其1953年著作《保守主义心灵》系统梳理了英美保守主义传统，
+被视为战后美国保守主义复兴的思想宣言。`,
+  works: [
+    {
+      year: "1953",
+      titleEN: "The Conservative Mind",
+      titleCN: "保守主义心灵",
+      note: "战后美国保守主义的奠基文本，梳理从柏克到艾略特的保守主义传统",
+      file: null
+    },
+    {
+      year: "1974",
+      titleEN: "The Roots of American Order",
+      titleCN: "美国秩序的根基",
+      note: "追溯美国政治秩序的四大思想源头：耶路撒冷、雅典、罗马与伦敦",
+      file: null
+    },
+    {
+      year: "1987",
+      titleEN: "The Politics of Prudence",
+      titleCN: "审慎的政治",
+      note: "晚期对保守主义十大原则的系统性阐述",
+      file: null
+    }
+  ]
+},
   // ──罗斯巴德────────────────────────────────
 {
   id: "Rothbard",
