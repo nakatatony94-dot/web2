@@ -1109,10 +1109,10 @@ function showQuote(animate = true) {
 //  构建侧边栏
 // ══════════════════════════════════════════
 function buildSidebar() {
-  const sorted = [...philosophers].sort((a, b) => a.nameEN.localeCompare(b.nameEN));
+  const sorted = [...philosophers].sort((a, b) => a.lastName.localeCompare(b.lastName));
   const groups = {};
   sorted.forEach(p => {
-    const letter = p.nameEN[0].toUpperCase();
+    const letter = p.lastName[0].normalize("NFD").replace(/[\u0300-\u036f]/g, "").toUpperCase();
     if (!groups[letter]) groups[letter] = [];
     groups[letter].push(p);
   });
