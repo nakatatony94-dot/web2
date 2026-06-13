@@ -490,4 +490,23 @@ const philosophers = [
     }
   ]
 },
+// ── 埃德蒙·柏克 ──────────────────────────
+  {
+    id: "Burke",
+    lastName: "B",
+    nameCN: "埃德蒙·柏克",
+    nameEN: "Edmund Burke",
+    years: "1729–1797",
+    century: "18世纪",
+    tradition: "英国保守主义",
+    photo: "images/portraits/burke.jpg",
+    bio: `英国政治家、哲学家，保守主义思想的奠基人。以《法国大革命反思录》对法国大革命的深刻批判，确立了反激进主义的保守主义政治传统，被后世誉为"保守主义之父"。`,
+    works: [
+      { year: "1757", titleEN: "A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful", titleCN: "关于崇高与美之起源的哲学探讨", note: "美学奠基之作，区分崇高与美的心理根源", file: null },
+      { year: "1770", titleEN: "Thoughts on the Cause of the Present Discontents", titleCN: "论当前不满情绪的根源", note: "论政党政治与宪政平衡的早期政论", file: null },
+      { year: "1790", titleEN: "Reflections on the Revolution in France", titleCN: "法国大革命反思录", note: "保守主义政治哲学的奠基文本，对激进革命的系统批判", file: null },
+      { year: "1791", titleEN: "Appeal from the New to the Old Whigs", titleCN: "从新辉格党到老辉格党的呼吁", note: "与激进自由主义决裂的政治宣言", file: null },
+      { year: "1796", titleEN: "Letters on a Regicide Peace", titleCN: "论弑君者和平的书信", note: "晚年力主对法战争、反对革命妥协的政论文集", file: null },
+    ]
+  },
 ];
