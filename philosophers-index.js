@@ -191,6 +191,43 @@ const philosophers = [
     }
   ]
 },
+// 埃德蒙·柏克
+{
+  id: "Burke",
+  lastName: "Burke",
+  nameCN: "埃德蒙·柏克",
+  nameEN: "Edmund Burke",
+  years: "1729–1797",
+  century: "18世纪",
+  tradition: "保守主义",
+  photo: "images/portraits/burke.jpg",
+  bio: `爱尔兰裔英国政治哲学家与议会政治家，现代保守主义的奠基人。
+长期任辉格党下议院议员，以对法国大革命的猛烈批判著称。
+主张传统、审慎变革与既有秩序的神圣性，深刻影响了此后两个世纪的保守主义传统。`,
+  works: [
+    {
+      year: "1757",
+      titleEN: "A Philosophical Enquiry into the Origin of Our Ideas of the Sublime and Beautiful",
+      titleCN: "论崇高与美的哲学探讨",
+      note: "早期美学力作，区分崇高与美两种审美范畴，对康德及浪漫主义运动影响深远",
+      file: null
+    },
+    {
+      year: "1790",
+      titleEN: "Reflections on the Revolution in France",
+      titleCN: "法国大革命反思录",
+      note: "保守主义政治哲学的核心文本，批判革命对传统秩序的破坏，预言了恐怖统治的到来",
+      file: null
+    },
+    {
+      year: "1791",
+      titleEN: "An Appeal from the New to the Old Whigs",
+      titleCN: "从新辉格党到旧辉格党的呼吁",
+      note: "晚期政论，坚守宪政传统，与激进辉格派决裂，确立其保守主义立场",
+      file: null
+    }
+  ]
+},
   // ──罗斯巴德────────────────────────────────
 {
   id: "Rothbard",
